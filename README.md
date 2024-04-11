@@ -1,3 +1,18 @@
+# notes
+
+Model mathematical expressions
+- Forward pass: Get result y for expression
+- Backward pass: Get gradient (if x goes up/down, what happens to y) for every x; derivative, chain rule...
+nn is special form of mathematical expression
+- Multi-layer perceptron: layers of neurons (weight, bias, activation)
+- Forward pass: Get predictions for all input data.
+- Backward pass: Get gradient for all weights and biases. Also gradient for input data, but this is given.
+- Update: Tune nn parameters to minimize loss function (= sum of differences between predictions and gt). Give weights nudge in certain direction (!gradient gives direction of loss increase!)
+- Iterate between forward pass, backward pass and update.
+
+Important:
+- If nudge (learning rate) is too high, the nn might overshoot the minimum loss + the loss might explode
+- One step (epoch) trains on all input data.
 
 # micrograd
 

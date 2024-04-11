@@ -13,6 +13,7 @@ nn is special form of mathematical expression
 Important:
 - If nudge (learning rate) is too high, the nn might overshoot the minimum loss + the loss might explode
 - One step (epoch) trains on all input data.
+- Zero grad: the gradients accumulate. So, don't forget to reset them every pass.
 
 # micrograd
 

@@ -2,7 +2,7 @@
 
 Model mathematical expressions
 - Forward pass: Get result y for expression
-- Backward pass: Get gradient (if x goes up/down, what happens to y) for every x; derivative, chain rule...
+- Backward pass: Get gradient (if x goes up/down, what happens to y) for every x; backpropagation, derivative, chain rule...
 nn is special form of mathematical expression
 - Multi-layer perceptron: layers of neurons (weight, bias, activation)
 - Forward pass: Get predictions for all input data.
@@ -14,6 +14,11 @@ Important:
 - If nudge (learning rate) is too high, the nn might overshoot the minimum loss + the loss might explode
 - One step (epoch) trains on all input data.
 - Zero grad: the gradients accumulate. So, don't forget to reset them every pass.
+
+# Summary by Andrej:
+- neural nets are very simple mathematical expressions that take the data and parameters as input.
+- The expression is followed by a loss function. The loss funtion estimates the accuracy of the predictions (forward pass) on that input data. Loss function is low when the predictions match the gt.
+- Backward the loss: use backpropagation to get the gradients. Gradients help to tune the parameters to minimize the loss. Iterate this in what's called gradient descent.
 
 # micrograd
 

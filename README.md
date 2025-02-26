@@ -1,4 +1,11 @@
 # notes
+Micrograd builds a mathematical expression with two inputs and a single output. It builds out the expression as an expression graph. During the forward pass, micrograd calculates the value of the output node. During the backward pass, micrograd initializes backpropagation at the output node: backward through the expression graph and recursively apply the chain rule to calculate the derivative of the output with respect to all the internal and input nodes. This represents how the input affects the output through the mathematical expression. Important note: micrograd is on scalar-level!
+
+Neural networks are simple mathematical expressions that take the input data and weights of a neural network as an input, the output are the predictions or the loss function. So, Backpropagation is an algorithm to efficiently evaluate the gradient of a loss function with respect to the weights of a neural network. The weights can be iteratively tuned to minimize the loss function and improve the accuracy of a neural network. But important to know that backpropagation can be used to evaluate any kind of mathematical expression. 
+
+
+
+
 
 Model mathematical expressions
 - Forward pass: Get result y for expression

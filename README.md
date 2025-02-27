@@ -1,12 +1,17 @@
 # notes
-Micrograd builds a mathematical expression with two inputs and a single output. It builds out the expression as an expression graph. During the forward pass, micrograd calculates the value of the output node. During the backward pass, micrograd initializes backpropagation at the output node: backward through the expression graph and recursively apply the chain rule to calculate the derivative of the output with respect to all the internal and input nodes. This represents how the input affects the output through the mathematical expression. Important note: micrograd is on scalar-level!
+Micrograd builds a mathematical expression with two inputs and a single output (as an expression graph*). During the forward pass, micrograd calculates the value of the output node. During the backward pass, micrograd initializes backpropagation at the output node: backward through the expression graph and recursively apply the chain rule to calculate the derivative of the output with respect to all the internal and input nodes. This represents how the input affects the output through the mathematical expression. Important note: micrograd can only build scalar-values mathematical expressions!
+
+*A mathematical expression can be represented as an expression graph, with variable and operation nodes. For example, for the following expression: a+b=c, then a and b are the children nodes; c is the parent node; plus is an operation node, which connects the children and parent nodes. 
+
+During backward pass, the gradient (the derivative of the output node with respect to some node*) is calculated for all the intermediate nodes starting at the output node. The gradient for the output node is obviously one. To calculate the derivative for the intermediate nodes, the chain rule is very important: If a node z depends on a node y, which itself depends on a node x, then z depends on x as well, via the intermediate variable y. In this case, the chain rule is expressed as dz/dx = (dz/dy) * (dy/dx) (Wikipedia). So, imagine this as a backpropagation-signal (carrying the information of the derivative of the output node with respect to all the intermediate nodes) flowing thhrough the graph. A plus node basically routes the derivative to its children nodes. 
+
+*A derivative represents the response of a function when the input is slightly altered (=the slope of the function). The mathematical formula for the derivative is: (f2 - f1)/h, where f1 is the output with input a and f2 is the output with a+h. When a function has multiple inputs, the derivative can be calculated with respect to all the inputs. 
 
 Neural networks are simple mathematical expressions that take the input data and weights of a neural network as an input, the output are the predictions or the loss function. So, Backpropagation is an algorithm to efficiently evaluate the gradient of a loss function with respect to the weights of a neural network. The weights can be iteratively tuned to minimize the loss function and improve the accuracy of a neural network. But important to know that backpropagation can be used to evaluate any kind of mathematical expression. 
 
+A neural network is build out of (input, hidden and output) layers of fully-connected neurons. A neuron has inputs, weights and a bias (The weights represent the strength of each input. The bias represents the trigger-happiness of a neuron). The output of a neuron is the activation function applied to the dot-product of the weights and the inputs with added bias. 
 
-A derivative represents the response of a function when the input is slightly altered (=the slope of the function). The mathematical formula for the derivative is: (f2 - f1)/h, where f1 is the output with input a and f2 is the output with a+h. When a function has multiple inputs, the derivative can be calculated with respect to all the inputs. 
-
-
+During backward pass, the gradient is calculated for the output of the neuron with respect to the weights of the neuron. 
 
 Model mathematical expressions
 - Forward pass: Get result y for expression

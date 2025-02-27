@@ -7,7 +7,7 @@ During backward pass, the gradient (the derivative of the output node with respe
 
 *A derivative represents the response of a function when the input is slightly altered (=the slope of the function). The mathematical formula for the derivative is: (f2 - f1)/h, where f1 is the output with input a and f2 is the output with a+h. When a function has multiple inputs, the derivative can be calculated with respect to all the inputs. 
 
-Micrograd can easily be build out in PyTorch. To perform the forward pass: lace the scalars in tensors, set require_grad to true (default is False), perform the mathematical expression. To  perform the backward pass: call .backward() on the output. Every scalar has a .grad() and a .data() like in micrograd.
+Micrograd can easily be build out in PyTorch. To perform the forward pass: place the scalars in tensor objects, set require_grad to true (default is False), perform the mathematical expression. To perform the backward pass: call .backward() on the output. Every scalar has a .grad()- and a .data()-function like in micrograd. The exceptional part of PyTorch is not when using single-element tensor objects, but when there are many elements stored in these objects.
 
 Neural networks are simple mathematical expressions that take the input data and weights of a neural network as an input, the output are the predictions or the loss function. So, Backpropagation is an algorithm to efficiently evaluate the gradient of a loss function with respect to the weights of a neural network. The weights can be iteratively tuned to minimize the loss function and improve the accuracy of a neural network. But important to know that backpropagation can be used to evaluate any kind of mathematical expression. 
 
